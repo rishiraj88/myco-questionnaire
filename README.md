@@ -2,9 +2,9 @@
 
 ## Notes for Reviewers
 Visit us at:
-Will add public URL soon.
+https://myco-qnr.netlify.app/
 
-Until then, you may deploy on your own local environment and test.
+Alternatively, you may also deploy the site in your own local environment and test.
 
 
 ### RR Shopware site built with:
@@ -26,6 +26,10 @@ Until then, you may deploy on your own local environment and test.
 - Calendar compontent
 - Freetext multiline textarea component
 - In-page popup (snackbar/toast) inspired from Material UI. Again thanks to Bootstrap developers!
+
+### Note
+Minor known imperfections are left there in the app/site which may be improvised as per client requirements.
+Principle: "Do not spend time on what's not required." 
 
 ### Screenshots
 
