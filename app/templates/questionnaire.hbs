@@ -1,0 +1,29 @@
+{{page-title "Questionnaire"}}
+<Header></Header>
+<MainContainer>
+    <div class="row bg-qnr align-items-center">
+        <div class="col-sm-12 mx-0 mt-2 mb-0 no-gutters bg-qnr-head">
+            <h2 class="text-center">
+                <div class="container-fluid main-body py-2">questionnaire</div>
+                <div class="main-body bg-qnr-head pb-0 text-hyphen">{{this.model.name}}</div>
+            </h2>
+            <hr class="w-50 mx-auto" />
+        </div>
+        <div class="card-body col-md-10 col-sm-12 mx-auto my-auto">
+            <p><span >{{this.model.description}}</span></p>
+        </div>
+
+        <div class="col-md-10 col-sm-12 mx-auto my-auto text-center">
+            <LinkTo @route="questions" @model={{this.model.questions.firstObject}}>
+                <p class="display-6 text-center _button_84h3hu d-inline-block rounded-3 
+                px-2 py-0 mx-0 my-0">Jetzt anfangen</p>
+            </LinkTo>
+        </div>
+
+        <div class="col-md-10 col-sm-12 mt-5 mx-auto my-auto text-align-center">
+            <p ><span class="fw-bold">category_name_hyphenated: </span>
+            <span class="text-hyphen">{{this.model.category_name_hyphenated}}</span></p>
+        </div>
+    </div>
+</MainContainer>
+<Footer></Footer>

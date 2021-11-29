@@ -1,0 +1,49 @@
+.question-card {
+    min-height: 250px;
+    max-height: 100%;
+    padding: 0;
+    text-align: left;
+    transition: all .5s;
+}
+
+.nav {
+    max-width: inherit;
+}
+.cont {
+    text-align: center;
+    justify-content: center;
+}
+
+.btn-con {
+    min-width: 10vw;
+}
+.b-group{
+    max-width: 80px;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.bg-q-head {
+        background-color: #FCFCFC;
+}
+.bg-q-options {
+    background-color: #fff;
+}
+
+input {
+    transition: transform 2s ease;
+}
+
+.tsn-q {
+    transition-property: background-color;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-delay: 1s;
+}
+.text-hyphen {
+word-break: break-all;
+-webkit-hyphens: manual;
+-ms-hyphens: manual;
+hyphens: manual;
+}

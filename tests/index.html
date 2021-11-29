@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyCoQuestionnaire Tests</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+    {{content-for "test-head"}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/myco-questionnaire.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
+
+    {{content-for "head-footer"}}
+    {{content-for "test-head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+    {{content-for "test-body"}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <div id="ember-testing-container">
+        <div id="ember-testing"></div>
+      </div>
+    </div>
+
+    <script src="/testem.js" integrity="" data-embroider-ignore></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/test-support.js"></script>
+    <script src="{{rootURL}}assets/myco-questionnaire.js"></script>
+    <script src="{{rootURL}}assets/tests.js"></script>
+
+    {{content-for "body-footer"}}
+    {{content-for "test-body-footer"}}
+  </body>
+</html>

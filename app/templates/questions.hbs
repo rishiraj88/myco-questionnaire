@@ -1,0 +1,126 @@
+{{page-title "Questions"}}
+<Header></Header>
+<MainContainer @model={{this.model}} @startDate={{this.startDate}} @comments={{this.comments}}>
+<AnimatedContainer>
+   {{#animated-if showThing use=transition duration=250}}
+     <div class="container question-card bg-qnr bg-q align-top pt-1 pl-1 no-gutters">
+    <div class="row bg-q-head col-sm-12 px-auto mx-auto my-0">
+      <div class="bg-q-head">
+        <h3 class="mb-0 text-hyphen">{{this.model.headline}}</h3>
+        <p>Erforderlich: {{this.model.required}}</p>
+      </div>
+      <div class="bg-q-options px-2">
+      {{#if (eq this.model.question_type "multiple-choice")}}
+        {{#if (eq this.model.multiple "false")}}
+          {{#animated-each this.model.choices use=transition duration=200 as |choice|}}
+            <div class="form-check ">
+              <input class="form-check-input" type="radio" name="flexDefault" 
+              checked={{choice.selected}} {{on "click" (fn this.captureCheckedValueRadio choice.label) }}>
+              <label class="form-check-label" for="flexDefault" name="flexLabel">
+                {{choice.label}}
+              </label>
+            </div>
+          {{/animated-each}}
+
+          {{!-- else for {{#if (eq this.model.multiple "false")}} --}}
+        {{else}}
+          {{#animated-each this.model.choices use=transition duration=200 as |choice|}}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexDefault" checked={{choice.selected}}
+                {{on "click" (fn this.captureCheckedValueCheckBox choice.label) }}>
+              <label class="form-check-label" for="flexDefault" name="flexLabel">
+                {{choice.label}}
+              </label>
+            </div>
+          {{/animated-each}}
+        {{/if}} {{!-- end of if{{#if (eq this.model.multiple "false")}} --}}
+
+        {{!-- else to (eq this.model.question_type "multiple-choice")}} --}}
+      {{else}}
+        {{#if (eq this.model.multiline "false")}}
+          <div>
+            {{input type="date" change=(action "readDate" value='target.value') value=this.startDate}}
+            <label class="form-check-label" for="flexRadioDefault1" name="flexLabel">
+              {{choice.label}}
+            </label>
+          </div>
+
+        {{else}}
+          <div>
+            {{textarea change=(action "readComments" value='target.value') value=this.comments}}
+            <label class="form-check-label" for="flexCheckDefault" name="flexLabel">
+              {{choice.label}}
+            </label>
+          </div>
+        {{/if}}
+
+      {{/if}} {{!-- end of if-else {{#if (eq this.model.question_type "multiple-choice")}} --}}
+      </div>
+    </div>
+  </div>
+           {{/animated-if}}
+ </AnimatedContainer>
+
+  <Question::Navigator @model={{this.model}} @questionnaire={{this.questionnaire}} @currentQuestionIndex={{this.currentQuestionIndex}}
+  @nextQuestion={{this.nextQuestion}} @toggle={{this.toggle}}>
+    <div class="col-sm-10 col-md-4 d-flex px-0 mx-0 my-0 btn-con">
+      <div class="btn-group btn-group-sm px-auto b-group" role="group" aria-label="Question Navigation">
+
+        {{!-- up arrow for PREVIOUS question --}}
+        <button type="button" class="btn btn-primary shadow p-2  rounded " data-bs-toggle="tooltip"
+          data-bs-placement="left" title="Previous Question" data-bs-animation="true" {{on "click"
+          this.goToPreviousQuestion}}>
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up"
+            class="svg-inline--fa fa-chevron-up fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path fill="currentColor"
+              d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+            </path>
+          </svg>
+        </button>
+
+        {{!-- down arrow for NEXT question --}}
+        <button type="button"  id="next-q-tooltp" class="btn btn-primary shadow p-2 rounded " 
+        data-bs-toggle={{this.toggle}} data-bs-placement="right" title="Next Question"
+        data-bs-animation="true" {{on "click" this.goToNextQuestion}} data-bs-target="#exampleModal">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
+            class="svg-inline--fa fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path fill="currentColor"
+              d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </Question::Navigator>
+
+<!-- Modal for questionnaire submission -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">MyCo Questionnaire</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div data-test-text class="modal-body">
+        Gut erledigt! Fragebogen eingereicht!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</MainContainer>{{outlet}}
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+<Footer>
+
+</Footer>
