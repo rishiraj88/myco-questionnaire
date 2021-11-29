@@ -27,9 +27,21 @@ Alternatively, you may also deploy the site in your own local environment and te
 - Freetext multiline textarea component
 - In-page popup (snackbar/toast) inspired from Material UI. Again thanks to Bootstrap developers!
 
+### Browser Compatibility
+Tested with the following browsers(up-to-date versions):
+- Mozilla Firefox
+- Chrome
+- Epic
+- Safari TODO
+
 ### Note
 Minor known imperfections are left there in the app/site which may be improvised as per client requirements.
+For example, text wrap without hyphenation is active.
 Principle: "Do not spend time on what's not required." 
+
+### Known Bug
+The icons of Next Question and Previous Question buttons are not visible in Chrome browser.
+
 
 ### Screenshots
 
