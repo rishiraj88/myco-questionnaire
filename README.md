@@ -7,7 +7,7 @@ https://myco-qnr.netlify.app/
 Alternatively, you may also deploy the site in your own local environment and test.
 
 
-### RR Shopware site built with:
+### Site built with:
 - Ember.js
 - Modern JavaScript / ECMAScript (ES6+)
 - CSS
